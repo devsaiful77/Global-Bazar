@@ -1,3 +1,24 @@
+<script setup>
+const navClose = () => {
+    $("body").css("overflow", "inherit"),
+        $(".nav-sidebar").removeClass("active"),
+        $(".backdrop").fadeOut();
+};
+
+function cartShow() {
+    $("body").css("overflow", "hidden"), $(".cart-sidebar").addClass("active");
+}
+
+const catgShow = () => {
+    $("body").css("overflow", "hidden"), $(".category-sidebar").addClass("active");
+};
+
+const catgClose = () => {
+    $("body").css("overflow", "inherit"),$(".category-sidebar").removeClass("active"),$(".backdrop").fadeOut();
+}
+
+
+</script>
 <template>
     <div>
         <aside class="category-sidebar">
@@ -5,7 +26,7 @@
                 <h4 class="category-title">
                     <i class="fas fa-align-left"></i><span>categories</span>
                 </h4>
-                <button class="category-close"><i class="icofont-close"></i></button>
+                <button class="category-close" @click="catgClose"><i class="icofont-close"></i></button>
             </div>
             <ul class="category-list">
                 <li class="category-item">
@@ -124,8 +145,9 @@
 
         <aside class="nav-sidebar">
             <div class="nav-header">
-                <a href="#"><img src="@/assets/images/logo.png" alt="logo" /></a><button class="nav-close"><i
-                        class="icofont-close"></i></button>
+                <a href="#"><img src="@/assets/images/logo.png" alt="logo" />
+                </a>
+                <button class="nav-close" @click="navClose"><i class="icofont-close"></i></button>
             </div>
             <div class="nav-content">
                 <ul class="nav-list">
@@ -157,8 +179,9 @@
         <div class="mobile-menu">
             <a href="/" class="active router-link-exact-active" title="Home Page" aria-current="page"><i
                     class="fas fa-home"></i><span>Home</span></a>
-            <button class="cate-btn" title="Category List"><i class="fas fa-list"></i><span>category</span></button>
-            <button class="cart-btn" title="Cartlist"><i
+            <button class="cate-btn" @click="catgShow" title="Category List"><i
+                    class="fas fa-list"></i><span>category</span></button>
+            <button class="cart-btn" @click="cartShow" title="Cartlist"><i
                     class="fas fa-shopping-basket"></i><span>Cart</span><sup>2</sup>
             </button>
             <a href="/my-wishist" class="" title="Wishlist"><i

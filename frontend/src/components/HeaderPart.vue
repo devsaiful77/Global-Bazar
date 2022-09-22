@@ -1,3 +1,30 @@
+<script setup>
+    /* Search Button */
+    function search(){
+        $(".header-form").toggleClass("active"),
+        $('.header-src').children(".fa-search").toggleClass("fa-times");
+    } 
+    /* Menu Bar */
+    function menu(){
+            $("body").css("overflow", "hidden"),
+            $(".nav-sidebar").addClass("active"),
+
+            $(".nav-close").on("click", function () {
+                // $("body").css("overflow", "inherit"),
+                // $(".nav-sidebar").removeClass("active"),
+                // $(".backdrop").fadeOut();
+            });
+    } 
+    /* Cart Show */
+    function cartShow(){
+        $("body").css("overflow", "hidden"),
+        $(".cart-sidebar").addClass("active"),
+        $(".cart-close").on("click", function () {
+            
+        });
+    } 
+</script>
+
 <template>
     <div>
         <!-- content -->
@@ -25,10 +52,10 @@
             <div class="container">
                 <div class="header-content">
                     <div class="header-media-group">
-                        <button class="header-user">
+                        <button class="header-user" @click="menu">
                             <img src="@/assets/images/menu.png" alt="user" /></button><a href="index.html"><img
-                                src="@/assets/images/logo.png" alt="logo" /></a><button class="header-src"><i
-                                class="fas fa-search"></i></button>
+                                src="@/assets/images/logo.png" alt="logo" /></a>
+                                <button class="header-src" @click="search"><i class="fas fa-search"></i></button>
                     </div>
                     <a href="index.html" class="header-logo"><img src="@/assets/images/logo.png" alt="logo" /></a>
 
@@ -48,11 +75,11 @@
                         </li>
 
 
-                        <a href="wishlist.html" class="header-widget" title="Wishlist"><i
-                                class="fas fa-heart"></i><sup>0</sup></a><button class="header-widget header-cart"
-                            title="Cartlist">
-                            <i class="fas fa-shopping-basket"></i><sup>9+</sup><span>total
-                                price<small>$345.00</small></span>
+                        <a href="wishlist.html" class="header-widget" title="Wishlist"><i class="fas fa-heart"></i><sup>0</sup>
+                        </a>
+
+                        <button class="header-widget header-cart" @click="cartShow" title="Cartlist">
+                            <i class="fas fa-shopping-basket"></i><sup>9+</sup><span>total price<small>$345.00</small></span>
                         </button>
                     </div>
                 </div>
