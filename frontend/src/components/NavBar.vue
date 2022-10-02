@@ -7,7 +7,7 @@
             <div class="navbar-content">
               <ul class="navbar-list">
                 <li class="navbar-item dropdown">
-                  <a class="navbar-link" href="#">home</a>
+                  <router-link class="navbar-link" to="/">home</router-link>
 
                 </li>
 
@@ -142,11 +142,11 @@
                 </li>
 
                 <li class="navbar-item dropdown-megamenu">
-                  <a class="navbar-link " href="#">shop</a>
+                  <router-link class="navbar-link " :to="{ name: 'shop.page' }">shop</router-link>
                 </li>
 
                 <li class="navbar-item dropdown-megamenu">
-                  <a class="navbar-link " href="#">Seller List</a>
+                  <router-link class="navbar-link " :to="{ name: 'seller.page' }" >Seller List</router-link>
 
                 </li>
 

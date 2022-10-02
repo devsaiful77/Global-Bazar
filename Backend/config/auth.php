@@ -40,6 +40,36 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        /* user guards */
+        'user' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+        'user-api' => [
+            'driver' => 'sanctum',
+            'provider' => 'users',
+        ],
+        /* admin guards */
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+        'admin-api' => [
+            'driver' => 'sanctum',
+            'provider' => 'admins',
+        ],
+        /* seller guards */
+        'seller' => [
+            'driver' => 'session',
+            'provider' => 'sellers',
+        ],
+        'seller-api' => [
+            'driver' => 'sanctum',
+            'provider' => 'sellers',
+        ],
+
+
     ],
 
     /*
@@ -63,6 +93,16 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        /* Admin */
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
+        ],
+        /* Seller */
+        'sellers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Seller::class,
         ],
 
         // 'users' => [
@@ -93,6 +133,21 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
+
+        'admins' => [
+            'provider' => 'admins',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+
+        'sellers' => [
+            'provider' => 'sellers',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+
     ],
 
     /*
