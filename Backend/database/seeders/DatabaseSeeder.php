@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
             SellersTableSeeder::class,
             DivisionSeeder::class,
             DistrictSeeder::class,
+            ThanaSeeder::class,
+            UnionSeeder::class,
         ]);
 
         \App\Models\User::factory(10)->create();
